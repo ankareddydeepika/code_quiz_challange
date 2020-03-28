@@ -13,6 +13,9 @@
 </head>
 
 <body>
+  <div class = "Interval">
+    <h2 style="text-align:right" id="timer"></h2>
+  </div>
   <div class="jumbotron">
     <h1 class="text-center">
       <strong>Coding Quiz Challenge</strong>
@@ -87,6 +90,7 @@
       $("#start").on("click", function () {
         $("p").hide();
         $("#start").hide();
+        setTime();
 
         buildQuiz();
         populateQuestion();
