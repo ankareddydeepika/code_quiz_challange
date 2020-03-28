@@ -11,75 +11,125 @@
 
 
 </head>
+
 <body>
-    <div class="jumbotron">
-      <h1 class="text-center">
-        <strong>Coding Quiz Challenge</strong>
-      </h1>
-    </div>
-    <div class="center">
-      <p>
-          Try to answer the following code-related Questions within the time limit. Keep in mind that incorrect answers will Penalize your score time
-          by ten seconds!
-      </p>
-      <button id="start">Start</button>
-    </div>
-    <div class="question">
-      <h2 id="questionText"></h2>
-      <button id="option1"></button>
-      <button id="option2"></button>
-      <button id="option3"></button>
-      <button id="option4"></button>
-    </div>
+  <div class="jumbotron">
+    <h1 class="text-center">
+      <strong>Coding Quiz Challenge</strong>
+    </h1>
+  </div>
+  <div class="center">
+    <p>
+      Try to answer the following code-related Questions within the time limit. Keep in mind that incorrect answers will
+      Penalize your score time
+      by ten seconds!
+    </p>
+    <button id="start">Start</button>
+  </div>
+  <div class="question">
+    <h2 id="questionText"></h2>
+    <button id="option1"></button>
+    <button id="option2"></button>
+    <button id="option3"></button>
+    <button id="option4"></button>
+  </div>
 
-    <script src="./script.js"></script>
-    <script type="text/javascript">
-$(document).ready(function() {
-  
-  var finalQuestions = []
-  class QuestionInfo  {
-    constructor(qText,option1,option2,option3,option4,correctoption) {
-    this.qText = qText
-    this.option1 = option1
-    this.option2 = option2
-    this.option3 = option3
-    this.option4 = option4
-    this.correctoption = correctoption
-   }
-  }
-function buildQuiz(){
+  <script src="./script.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
 
-    var question1 = new QuestionInfo("2434","34343","343r4r","3434r4","34r343","34343")
-    var question2 = new QuestionInfo("24348679","34343","343r4r","3434r4","34r343","34343")
-    
+      var finalQuestions = [];
+      var currentIndex = 0;
+      
+      class QuestionInfo {
+        constructor(qText, option1, option2, option3, option4, correctoption) {
+          this.qText = qText
+          this.option1 = option1
+          this.option2 = option2
+          this.option3 = option3
+          this.option4 = option4
+          this.correctoption = correctoption
+        }
+        
+      }
+      var currentQuestion = new QuestionInfo("", "", "", "", "", "");
+      function buildQuiz() {
 
-    finalQuestions = [question1, question2];
-
-}
-
-
-    $("#start").on ("click", function(){
-      console.log("click")
-      $("p").hide();
-      $("#start").hide();
-
-     buildQuiz()
-      var firstQue = finalQuestions[0];
-      $("#questionText").text(firstQue.qText);
-      $("#option1").text(firstQue.option1);
-      $("#option2").text(firstQue.option2);
-      $("#option3").text(firstQue.option3);
-      $("#option4").text(firstQue.option4);
+        var question1 = new QuestionInfo("Q1", "34343", "343r4r", "3434r4", "34r343", "34343")
+        var question2 = new QuestionInfo("Q2", "34343", "343r4r", "3434r4", "34r343", "34343")
+        var question3 = new QuestionInfo("Q3", "34343", "343r4r", "3434r4", "34r343", "34343")
+        var question4 = new QuestionInfo("Q4", "34343", "343r4r", "3434r4", "34r343", "34343")
 
 
+        finalQuestions = [question1, question2,question3,question4 ];
+
+      }
+
+      function populateQuestion() {
+        currentQuestion = finalQuestions[currentIndex];
+        $("#questionText").text(currentQuestion.qText);
+        $("#option1").text(currentQuestion.option1);
+        $("#option2").text(currentQuestion.option2);
+        $("#option3").text(currentQuestion.option3);
+        $("#option4").text(currentQuestion.option4);
+
+      }
+      function checkanswer(selectedoption){
+        if (selectedoption === currentQuestion.correctoption) {
+          console.log("true")
+        }
+        else {
+          console.log("false");
+        }
+      }
+
+
+      $("#start").on("click", function () {
+        $("p").hide();
+        $("#start").hide();
+
+        buildQuiz();
+        populateQuestion();
+      });
+
+      $("#option1").on("click", function () {
+
+        var optionText = $("#option1").text();
+        checkanswer(optionText);
+        currentIndex++;
+        populateQuestion();
+
+      });
+
+      $("#option2").on("click", function () {
+
+        var optionText = $("#option2").text();
+        checkanswer(optionText);
+        currentIndex++;
+        populateQuestion();
+
+      });
+      $("#option3").on("click", function () {
+        var optionText = $("#option3").text();
+        checkanswer(optionText);
+        currentIndex++;
+        populateQuestion();
+
+      });
+      $("#option4").on("click", function () {
+        var optionText = $("#option4").text();
+        checkanswer(optionText);
+        currentIndex++;
+        populateQuestion();
+
+      });
 
     });
-    
-});
-    
-    </script>
-   
-    
+
+  </script>
+
+
 
 </body>
+
 </html>
