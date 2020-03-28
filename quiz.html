@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Coding Quiz Challenge</title>
+  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+</head>
+<body>
+    <div class="jumbotron">
+      <h1 class="text-center">
+        <strong>Coding Quiz Challenge</strong>
+      </h1>
+    </div>
+    <div class="center">
+      <p>
+          Try to answer the following code-related Questions within the time limit. Keep in mind that incorrect answers will Penalize your score time
+          by ten seconds!
+      </p>
+      <button id="start">Start</button>
+    </div>
+    <div class="question">
+      <h2 id="questionText"></h2>
+      <button id="option1"></button>
+      <button id="option2"></button>
+      <button id="option3"></button>
+      <button id="option4"></button>
+    </div>
+
+    <script src="./script.js"></script>
+    <script type="text/javascript">
+$(document).ready(function() {
+  
+  var finalQuestions = []
+  class QuestionInfo  {
+    constructor(qText,option1,option2,option3,option4,correctoption) {
+    this.qText = qText
+    this.option1 = option1
+    this.option2 = option2
+    this.option3 = option3
+    this.option4 = option4
+    this.correctoption = correctoption
+   }
+  }
+function buildQuiz(){
+
+    var question1 = new QuestionInfo("2434","34343","343r4r","3434r4","34r343","34343")
+    var question2 = new QuestionInfo("24348679","34343","343r4r","3434r4","34r343","34343")
+    
+
+    finalQuestions = [question1, question2];
+
+}
+
+
+    $("#start").on ("click", function(){
+      console.log("click")
+      $("p").hide();
+      $("#start").hide();
+
+     buildQuiz()
+      var firstQue = finalQuestions[0];
+      $("#questionText").text(firstQue.qText);
+      $("#option1").text(firstQue.option1);
+      $("#option2").text(firstQue.option2);
+      $("#option3").text(firstQue.option3);
+      $("#option4").text(firstQue.option4);
+
+
+
+    });
+    
+});
+    
+    </script>
+   
+    
+
+</body>
+</html>

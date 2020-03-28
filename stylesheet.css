@@ -1,0 +1,96 @@
+.center{
+    font-weight: bolder;
+    text-align: center;
+    white-space: pre-wrap;
+}
+
+  #start {
+    margin-left: 20px;
+    font-size: 25px;
+    color: rgb(190, 58, 58);
+    border-style: solid;
+    width: 100px;
+    background-color: aqua;
+    margin: auto;
+    display: block;
+    
+  }
+
+  #questionText{
+    font-size: 30px;
+    text-align: center;
+    white-space: pre-wrap;
+  }
+
+  #option1{
+    margin-left: 20px;
+    font-size: 25px;
+    border-style: solid;
+    width: 100px;
+    margin: auto;
+    display: block;
+    display: flex;
+    border-color: #4CAF50;
+    color: green;
+    
+  }
+  
+
+  #option2{
+    margin-left: 20px;
+    font-size: 25px;
+    border-style: solid;
+    width: 100px;
+    margin: auto;
+    display: block;
+    display: flex;
+    border-color: #4CAF50;
+    color: green;
+    
+  }
+  #option3{
+    margin-left: 20px;
+    font-size: 25px;
+    border-style: solid;
+    width: 100px;
+    margin: auto;
+    display: block;
+    display: flex;
+    border-color: #4CAF50;
+    color: green;
+    
+  } #option4{
+    margin-left: 20px;
+    font-size: 25px;
+    border-style: solid;
+    width: 100px;
+    margin: auto;
+    display: block;
+    display: flex;
+    border-color: #4CAF50;
+    color: green;
+    
+  }
+  
+  #option1:hover{
+    background-color: grey;
+    color: white;
+  }
+  #option2:hover{
+    background-color: grey;
+    color: white;
+  }
+  #option3:hover{
+    background-color: grey;
+    color: white;
+  }
+  #option4:hover{
+    background-color: grey;
+    color: white;
+  }
+.question{
+  border-style: inset;
+  border-color: red;
+  border-left: 6px solid red;
+}
+  
