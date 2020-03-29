@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <div class = "Interval">
+  <div class="Interval">
     <h2 style="text-align:right" id="timer"></h2>
   </div>
   <div class="jumbotron">
@@ -43,7 +43,9 @@
 
       var finalQuestions = [];
       var currentIndex = 0;
-      
+      var score = 0;
+      var timeEl = document.querySelector("#timer");
+      var secondsLeft = 60;
       class QuestionInfo {
         constructor(qText, option1, option2, option3, option4, correctoption) {
           this.qText = qText
@@ -53,7 +55,7 @@
           this.option4 = option4
           this.correctoption = correctoption
         }
-        
+
       }
       var currentQuestion = new QuestionInfo("", "", "", "", "", "");
       function buildQuiz() {
@@ -64,7 +66,7 @@
         var question4 = new QuestionInfo("Q4", "34343", "343r4r", "3434r4", "34r343", "34343")
 
 
-        finalQuestions = [question1, question2,question3,question4 ];
+        finalQuestions = [question1, question2, question3, question4];
 
       }
 
@@ -77,12 +79,89 @@
         $("#option4").text(currentQuestion.option4);
 
       }
-      function checkanswer(selectedoption){
+
+      function hideallQuestionEl() {
+
+        $(".question").hide();
+      }
+      function ShowInitial() {
+
+        var infoEl = document.createElement("div");
+        var h2e1 = document.createElement("h2")
+        h2e1.textContent = "Enter initals"
+        var x = document.createElement("INPUT");
+        x.setAttribute("type", "text");
+        x.setAttribute("value", "");
+        x.setAttribute("id", "myinput")
+        infoEl.appendChild(h2e1)
+        infoEl.appendChild(x)
+
+
+        var h3e1 = document.createElement("h3");
+        h3e1.textContent = "Total Score: " + score;
+        infoEl.appendChild(h3e1);
+
+        var button = document.createElement("button");
+        button.innerHTML = "Submit";
+        infoEl.appendChild(button);
+        document.body.appendChild(infoEl);
+
+        button.addEventListener("click", function () {
+          infoEl.style.display = "none";
+
+          var infoEl2 = document.createElement("div");
+          var h2e2 = document.createElement("h4");
+          var inputvalue = document.getElementById("myinput").value;
+          h2e2.textContent = inputvalue + " score is " + score;
+          infoEl2.appendChild(h2e2);
+          var button = document.createElement("button");
+          button.innerHTML = "Start Again";
+          infoEl2.appendChild(button);
+          document.body.appendChild(infoEl2);
+
+          button.addEventListener("click", function () {
+            $("p").show();
+            $("#start").show();
+            infoEl2.style.display = "none"
+
+          })
+
+
+        })
+
+
+
+      }
+      function sendMessage() {
+        timeEl.textContent = " ";
+
+        hideallQuestionEl();
+        console.log("time")
+        ShowInitial();
+
+      }
+      function setTime() {
+        var timerInterval = setInterval(function () {
+          secondsLeft--;
+          timeEl.textContent = secondsLeft;
+
+          if (secondsLeft === 0) {
+            clearInterval(timerInterval);
+            sendMessage();
+          }
+
+        }, 1000);
+      }
+      function checkanswer(selectedoption) {
         if (selectedoption === currentQuestion.correctoption) {
-          console.log("true")
+          score += 10;
         }
         else {
-          console.log("false");
+          secondsLeft -= 10;
+        }
+        if (currentIndex === (finalQuestions.length - 1)) {
+          hideallQuestionEl();
+          ShowInitial();
         }
       }
 
@@ -90,6 +169,9 @@
       $("#start").on("click", function () {
         $("p").hide();
         $("#start").hide();
+        secondsLeft = 60;
+        currentIndex = 0;
+        $(".question").show();
         setTime();
 
         buildQuiz();
