@@ -21,5 +21,6 @@ THEN user can save initials and score.
 5.Created a function to set Timer.
 6.Questioninfo class is used to store the data
 
+Application Link: https://ankareddydeepika.github.io/code_quiz_challange/.
 
 
