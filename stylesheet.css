@@ -15,7 +15,10 @@
     display: block;
     
   }
-
+  .parent {
+    text-align: center;
+  }
+ 
   #questionText{
     font-size: 30px;
     text-align: center;

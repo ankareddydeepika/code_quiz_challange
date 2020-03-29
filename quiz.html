@@ -40,7 +40,7 @@
   <script src="./script.js"></script>
   <script type="text/javascript">
     $(document).ready(function () {
-
+      $(".question").hide();
       var finalQuestions = [];
       var currentIndex = 0;
       var score = 0;
@@ -89,12 +89,14 @@
       function ShowInitial() {
         clearInterval(timerInterval);
         var infoEl = document.createElement("div");
+        infoEl.className += "parent"
         var h2e1 = document.createElement("h2")
         h2e1.textContent = "Enter initals"
         var x = document.createElement("INPUT");
         x.setAttribute("type", "text");
         x.setAttribute("value", "");
         x.setAttribute("id", "myinput")
+        
         infoEl.appendChild(h2e1)
         infoEl.appendChild(x)
 
@@ -111,6 +113,7 @@
         button.addEventListener("click", function () {
           
           var infoEl2 = document.createElement("div");
+          infoEl2.className += "parent"
           var h2e2 = document.createElement("h4");
           var inputvalue = document.getElementById("myinput").value;
           h2e2.textContent = inputvalue + " score is " + score;
