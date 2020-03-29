@@ -46,6 +46,7 @@
       var score = 0;
       var timeEl = document.querySelector("#timer");
       var secondsLeft = 60;
+      var timerInterval;
       class QuestionInfo {
         constructor(qText, option1, option2, option3, option4, correctoption) {
           this.qText = qText
@@ -84,8 +85,9 @@
 
         $(".question").hide();
       }
-      function ShowInitial() {
 
+      function ShowInitial() {
+        clearInterval(timerInterval);
         var infoEl = document.createElement("div");
         var h2e1 = document.createElement("h2")
         h2e1.textContent = "Enter initals"
@@ -107,8 +109,7 @@
         document.body.appendChild(infoEl);
 
         button.addEventListener("click", function () {
-          infoEl.style.display = "none";
-
+          
           var infoEl2 = document.createElement("div");
           var h2e2 = document.createElement("h4");
           var inputvalue = document.getElementById("myinput").value;
@@ -116,21 +117,16 @@
           infoEl2.appendChild(h2e2);
           var button = document.createElement("button");
           button.innerHTML = "Start Again";
+          infoEl.remove();
           infoEl2.appendChild(button);
           document.body.appendChild(infoEl2);
 
           button.addEventListener("click", function () {
             $("p").show();
             $("#start").show();
-            infoEl2.style.display = "none"
-
+            infoEl2.remove()
           })
-
-
         })
-
-
-
       }
       function sendMessage() {
         timeEl.textContent = " ";
@@ -141,7 +137,7 @@
 
       }
       function setTime() {
-        var timerInterval = setInterval(function () {
+        timerInterval = setInterval(function () {
           secondsLeft--;
           timeEl.textContent = secondsLeft;
 
