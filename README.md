@@ -23,4 +23,7 @@ THEN user can save initials and score.
 
 Application Link: https://ankareddydeepika.github.io/code_quiz_challange/.
 
+![](Assets\Images\Application.gif)
+
+
 
