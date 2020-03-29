@@ -25,72 +25,24 @@
     white-space: pre-wrap;
   }
 
-  #option1{
+  .options{
     margin-left: 20px;
     font-size: 25px;
-    border-style: solid;
-    width: 100px;
+    border-style: ridge;
+    width: 750px;
     margin: auto;
-    display: block;
+    display: inline-block;
     display: flex;
-    border-color: #4CAF50;
-    color: green;
+    border-color: rgb(54, 56, 54);
+    color: rgb(9, 10, 9);
     
   }
   
-
-  #option2{
-    margin-left: 20px;
-    font-size: 25px;
-    border-style: solid;
-    width: 100px;
-    margin: auto;
-    display: block;
-    display: flex;
-    border-color: #4CAF50;
-    color: green;
-    
-  }
-  #option3{
-    margin-left: 20px;
-    font-size: 25px;
-    border-style: solid;
-    width: 100px;
-    margin: auto;
-    display: block;
-    display: flex;
-    border-color: #4CAF50;
-    color: green;
-    
-  } #option4{
-    margin-left: 20px;
-    font-size: 25px;
-    border-style: solid;
-    width: 100px;
-    margin: auto;
-    display: block;
-    display: flex;
-    border-color: #4CAF50;
-    color: green;
-    
+  .options:hover{
+    background-color: grey;
+    color: white;
   }
   
-  #option1:hover{
-    background-color: grey;
-    color: white;
-  }
-  #option2:hover{
-    background-color: grey;
-    color: white;
-  }
-  #option3:hover{
-    background-color: grey;
-    color: white;
-  }
-  #option4:hover{
-    background-color: grey;
-    color: white;
-  }
 .question{
   border-style: inset;
   border-color: red;
